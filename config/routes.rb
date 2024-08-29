@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get "lists/new"
-  get "lists/index"
-  get "lists/show"
-  get "lists/edit"
-  get '/top' => 'homes#top'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'lists/new'
+  get 'top' => 'homes#top'
+  post 'lists' => 'lists#create'
+  get 'lists' => 'lists#index'
+    # .../lists/1 や .../lists/3 に該当する
+  get 'lists/:id' => 'lists#show'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
